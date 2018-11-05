@@ -1,4 +1,4 @@
-module.export = class Counter {
+module.exports = class Counter {
     constructor(startValue, step) {
         this.value = startValue;
         this.step = step;
