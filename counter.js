@@ -11,4 +11,8 @@ module.export = class Counter {
     decrease() {
         this.value = this.value - this.step;
     }
+
+    get() {
+        return this.value;
+    }
 };
