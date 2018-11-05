@@ -7,4 +7,8 @@ module.export = class Counter {
     increase() {
         this.value = this.value + this.step;
     }
+
+    decrease() {
+        this.value = this.value - this.step;
+    }
 };
