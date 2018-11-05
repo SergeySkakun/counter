@@ -109,4 +109,44 @@ describe("Test class Counter.", function() {
             assert.equal(newInstanceClass.value, 30);
         });
     });
+
+    describe("Test 'get' method.", function() {
+        it("Call at once after create new instance of class Counter", function() {
+            let newInstanceClass = new testingClass(7, 8);
+            assert.equal(newInstanceClass.get(), 7);
+        });
+
+        it("Call after using 'increase' method", function() {
+            let newInstanceClass = new testingClass(2, 2);
+            newInstanceClass.increase();
+            newInstanceClass.increase();
+            assert.equal(newInstanceClass.get(), 6);
+        });
+
+        it("Call after using 'decrease' method", function() {
+            let newInstanceClass = new testingClass(3, 3);
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.get(), -3);
+        });
+
+        it("Multiple call 'get' method in row", function() {
+            let newInstanceClass = new testingClass(5, 0);
+            newInstanceClass.decrease();
+            newInstanceClass.get();
+            newInstanceClass.get();
+            newInstanceClass.get();
+            assert.equal(newInstanceClass.get(), 5);
+        });
+
+        it("Multiple call 'get' method after using another methods", function() {
+            let newInstanceClass = new testingClass(11, 22);
+            newInstanceClass.decrease();
+            newInstanceClass.increase();
+            newInstanceClass.increase();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.value, -11);
+        });
+    });
 });
