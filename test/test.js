@@ -65,4 +65,48 @@ describe("Test class Counter.", function() {
             assert.equal(newInstanceClass.value, -20);
         });
     });
+
+    describe("Test 'decrease' method.", function() {
+        it("One call 'decrease' method with positive pararmeters", function() {
+            let newInstanceClass = new testingClass(1, 1);
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.value, 0);
+        });
+
+        it("Multiple call 'decrease' method with positive pararmeters", function() {
+            let newInstanceClass = new testingClass(2, 2);
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.value, -8);
+        });
+
+        it("One call 'decrease' method with 0 in all parametrs", function() {
+            let newInstanceClass = new testingClass(0, 0);
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.value, 0);
+        });
+
+        it("Multiple call 'decrease' method with step = 0", function() {
+            let newInstanceClass = new testingClass(5, 0);
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.value, 5);
+        });
+
+        it("Multiple call 'decrease' method with  with negative pararmeters", function() {
+            let newInstanceClass = new testingClass(5, -5);
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            newInstanceClass.decrease();
+            assert.equal(newInstanceClass.value, 30);
+        });
+    });
 });
